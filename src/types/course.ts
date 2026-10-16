@@ -33,6 +33,7 @@ export interface CourseModule {
 export interface Course {
   slug: string;
   code: string;
+  tag?: string;
   title: string;
   category: CategoryId;
   level: CourseLevel;

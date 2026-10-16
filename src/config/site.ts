@@ -80,5 +80,6 @@ export const mainNav = [
   { label: "Courses", href: "/courses" },
   { label: "About", href: "/about" },
   { label: "Corporate Training", href: "/corporate-training" },
+  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
 ] as const;

@@ -64,7 +64,7 @@ export function CourseExplorer({ courses, categories }: CourseExplorerProps) {
         <div className="mt-8">
           <h2 className="mb-3 text-xs font-bold tracking-widest text-ink-400 uppercase">Categories</h2>
           <ul className="-mx-1 flex gap-2 overflow-x-auto pb-2 lg:mx-0 lg:flex-col lg:gap-1 lg:overflow-visible lg:pb-0">
-            {[{ id: "all" as const, name: "All Courses" }, ...categories].map((c) => {
+            {[{ id: "all" as const, name: "All SAP Courses" }, ...categories].map((c) => {
               const active = category === c.id;
               return (
                 <li key={c.id} className="shrink-0">

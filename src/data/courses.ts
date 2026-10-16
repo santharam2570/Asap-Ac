@@ -51,12 +51,14 @@ export const courses: Course[] = [
   {
     slug: "sap-fico",
     code: "FIN-200",
-    title: "SAP FICO (Finance & Controlling)",
+    tag: "Coimbatore & Trichy Offline / Online Batches",
+    title: "SAP FICO (Finance & Controlling) Course",
     category: "finance",
     level: "Intermediate",
     durationWeeks: 10,
     hours: 90,
-    summary: "Master financial accounting and controlling in SAP, from GL configuration to product costing and month-end close.",
+    summary:
+      "Master financial accounting, General Ledger, AP/AR, and S/4HANA Finance with live hands-on server practice. Most popular program for commerce and finance graduates.",
     description:
       "Our flagship finance programme. Learn to configure and operate SAP Financial Accounting (GL, AP, AR, Asset Accounting) and Controlling (Cost Centre, Profit Centre, Internal Orders, Product Costing, CO-PA) with real business scenarios.",
     highlights: ["Complete FI & CO configuration", "Real-time end-to-end project", "Integration with MM & SD", "Interview & certification prep"],
@@ -99,12 +101,14 @@ export const courses: Course[] = [
   {
     slug: "sap-mm",
     code: "LOG-210",
-    title: "SAP MM (Materials Management)",
+    tag: "Logistics & Procurement",
+    title: "SAP MM (Materials Management) Training",
     category: "logistics",
     level: "Intermediate",
     durationWeeks: 8,
     hours: 75,
-    summary: "Configure procurement and inventory management end to end, from purchase requisition to invoice verification.",
+    summary:
+      "Master end-to-end procurement, inventory management, and invoice verification on live SAP S/4HANA systems with real-time enterprise scenarios.",
     description:
       "Learn the complete Procure-to-Pay cycle in SAP. Covers organisational structure, material and vendor master data, purchasing, inventory management, valuation, invoice verification and MRP.",
     highlights: ["Complete Procure-to-Pay cycle", "Release strategy configuration", "Inventory & valuation", "Integration with FI"],
@@ -122,12 +126,14 @@ export const courses: Course[] = [
   {
     slug: "sap-sd",
     code: "LOG-220",
-    title: "SAP SD (Sales & Distribution)",
+    tag: "Order-to-Cash",
+    title: "SAP SD (Sales & Distribution) Certification Training",
     category: "logistics",
     level: "Intermediate",
     durationWeeks: 8,
     hours: 75,
-    summary: "Master the Order-to-Cash process: sales orders, pricing, delivery, billing and credit management.",
+    summary:
+      "Configure the complete Order-to-Cash (OTC) lifecycle—sales orders, pricing, delivery, and billing—on live sandbox environments.",
     description:
       "A complete SD programme covering enterprise structure, customer master, sales document configuration, pricing procedures, shipping, billing, and integration with MM and FI.",
     highlights: ["Order-to-Cash end to end", "Pricing procedure configuration", "Copy controls & output", "Real-time scenarios"],
@@ -255,12 +261,14 @@ export const courses: Course[] = [
   {
     slug: "sap-successfactors",
     code: "HCM-300",
-    title: "SAP SuccessFactors",
+    tag: "Cloud HR Suite",
+    title: "SAP SuccessFactors Cloud HR Training",
     category: "hr",
     level: "Intermediate",
     durationWeeks: 8,
     hours: 70,
-    summary: "Implement SAP's cloud HR suite: Employee Central, Recruiting, Onboarding, Performance & Goals and more.",
+    summary:
+      "Implement Employee Central, Recruiting, and Performance management modules on cloud HR instances with certified industry mentors.",
     description:
       "A complete SuccessFactors programme focused on Employee Central and key talent modules, including provisioning, role-based permissions, business rules and integration.",
     highlights: ["Employee Central configuration", "Recruiting & Onboarding", "Performance & Goals", "RBP and business rules"],
@@ -280,12 +288,14 @@ export const courses: Course[] = [
   {
     slug: "sap-abap",
     code: "TEC-200",
-    title: "SAP ABAP Programming",
+    tag: "Technical Development",
+    title: "SAP ABAP & RAP Programming Course",
     category: "technical",
     level: "Beginner",
     durationWeeks: 10,
     hours: 90,
-    summary: "Learn SAP's core programming language: reports, dialog programming, forms, enhancements and interfaces.",
+    summary:
+      "Learn SAP core programming, CDS views, RAP model, and enhancements for S/4HANA development. Tailored for engineering and IT graduates in Tamil Nadu.",
     description:
       "A complete ABAP developer programme. Start from data dictionary and basic syntax, move to reports, module pool, Smart Forms/Adobe Forms, BAPIs, BDC, enhancements and object-oriented ABAP.",
     highlights: ["From basics to object-oriented ABAP", "Reports, ALV & forms", "Enhancements & BAdIs", "Real development assignments"],
@@ -393,12 +403,14 @@ export const courses: Course[] = [
   {
     slug: "sap-btp",
     code: "CLD-200",
-    title: "SAP Business Technology Platform (BTP)",
+    tag: "Next-Gen Enterprise Cloud",
+    title: "SAP BTP & Integration Suite Training",
     category: "cloud",
     level: "Intermediate",
     durationWeeks: 7,
     hours: 60,
-    summary: "Extend and innovate on SAP's cloud platform with CAP, low-code tools, integration and AI services.",
+    summary:
+      "Learn cloud extensions, CAP framework, Integration Suite, and AI services to build modern enterprise solutions.",
     description:
       "Learn how to build side-by-side extensions on SAP BTP: account model, Cloud Foundry, CAP (Node.js/Java), SAP Build, HANA Cloud, security and AI services.",
     highlights: ["BTP account model", "Cloud Application Programming (CAP)", "SAP Build low-code", "HANA Cloud & AI services"],

@@ -29,7 +29,7 @@ export function CourseCard({ course }: { course: Course }) {
       </div>
 
       <p className="mt-5 text-xs font-semibold tracking-wider text-ink-400 uppercase">
-        {course.code} · {category?.name}
+        {course.code} · {course.tag ?? category?.name}
       </p>
       <h3 className="mt-1.5 text-lg leading-snug font-bold text-ink-950 group-hover:text-brand-700">{course.title}</h3>
       <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-ink-500">{course.summary}</p>

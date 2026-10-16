@@ -22,10 +22,11 @@ export default async function CoursesPage() {
         breadcrumbs={[{ label: "Courses" }]}
         title={
           <>
-            Explore all <span className="text-brand-400">SAP courses</span>
+            Comprehensive <span className="text-brand-400">SAP Courses</span> &amp; Certification Training in
+            Coimbatore &amp; Trichy
           </>
         }
-        description={`${courses.length} industry-aligned programs across ${categories.length} tracks. Filter by module or level, or search for any topic.`}
+        description="Master in-demand SAP enterprise modules—from FICO, MM, and SD to ABAP, SuccessFactors, and BTP. Taught by certified consultants with 100% live server access, hands-on project labs, and dedicated placement support at our Coimbatore and Trichy centers."
       />
 
       <section className="py-14 sm:py-20">
@@ -45,8 +46,8 @@ export default async function CoursesPage() {
       </section>
 
       <CtaBanner
-        title="Not sure which SAP module is right for you?"
-        description="Get free one-on-one career counselling from our SAP mentors."
+        title="Not sure which SAP module matches your career goals?"
+        description="Visit our Coimbatore (Peelamedu) or Trichy (Cantonment) centers, or book a free 1-on-1 demo and career counselling session with an active SAP consultant."
       />
     </>
   );
