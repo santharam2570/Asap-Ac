@@ -10,7 +10,7 @@ import { Icon, type IconKey } from "@/components/ui/Icon";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/config/site";
-import { stats } from "@/data/content";
+import { stats, whyAsap } from "@/data/content";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -45,10 +45,10 @@ export default function AboutPage() {
         breadcrumbs={[{ label: "About" }]}
         title={
           <>
-            We are <span className="text-brand-400">ASAP Academy</span>
+            Premier <span className="text-brand-400">SAP Training Institute</span> in Coimbatore &amp; Trichy
           </>
         }
-        description="As Study As Possible: a focused SAP training institute built by consultants, for future consultants."
+        description="Founded by working enterprise SAP consultants, ASAP Academy bridges the gap between academic education and real-world ERP consulting. We empower freshers and professionals across Coimbatore (Peelamedu) and Trichy (Cantonment) with 100% live server access, real-time project labs, and career-focused SAP certification guidance."
       />
 
       <section className="py-20 sm:py-28">
@@ -60,20 +60,18 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <div>
-            <SectionHeading
-              align="left"
-              eyebrow="Our Story"
-              title="Bridging the gap between learning SAP and working in SAP"
-            />
+            <SectionHeading align="left" title="Who We Are & Why Choose ASAP Academy" />
             <Reveal delay={150} className="mt-6 space-y-4 text-lg leading-relaxed text-ink-600">
               <p>
-                ASAP Academy was founded by experienced SAP consultants who saw a common problem: learners finished
-                courses knowing transaction codes, but not how real projects work.
+                ASAP Academy stands out as the top-rated SAP training center in Tamil Nadu, with physical branches in
+                Coimbatore (Peelamedu) and Trichy (Cantonment). Unlike traditional IT training institutes that focus on
+                static theoretical slide decks, we train learners on live S/4HANA sandbox environments under the
+                mentorship of active enterprise consultants.
               </p>
               <p>
-                We built our programs around live S/4HANA systems, end-to-end business scenarios and mentorship from
-                people who implement SAP for a living. The result is training that prepares you for interviews and
-                for your first day on the job.
+                Whether you are a commerce graduate aiming for SAP FICO, an engineer targeting SAP MM/SD or ABAP, or an
+                HR professional moving to SAP SuccessFactors, our curriculum is tailored to make you
+                implementation-ready from day one.
               </p>
             </Reveal>
             <dl className="mt-10 grid grid-cols-2 gap-6">
@@ -113,7 +111,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      <Journey />
+      <Journey steps={whyAsap} />
       <CtaBanner />
     </>
   );

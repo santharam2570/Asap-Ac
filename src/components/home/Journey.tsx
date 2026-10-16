@@ -3,7 +3,9 @@ import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { journey } from "@/data/content";
 
-export function Journey() {
+type JourneyStep = { step: string; title: string; description: string };
+
+export function Journey({ steps = journey }: { steps?: JourneyStep[] }) {
   return (
     <section className="py-20 sm:py-28">
       <Container>
@@ -23,7 +25,7 @@ export function Journey() {
             <span />
           </Reveal>
           <ol className="relative grid gap-10 md:grid-cols-4 md:gap-6">
-          {journey.map((j, i) => (
+          {steps.map((j, i) => (
             <Reveal as="li" key={j.step} delay={300 + i * 250} className="group relative text-center">
               <span className="relative mx-auto flex size-14 items-center justify-center rounded-2xl bg-brand-600 font-display text-lg font-black text-white shadow-lg ring-8 shadow-brand-600/30 ring-white transition-all duration-300 group-hover:-translate-y-1 group-hover:rotate-6 group-hover:bg-ink-950">
                 <span className="absolute inset-0 animate-ping rounded-2xl bg-brand-500 opacity-20" style={{ animationDelay: `${i * 0.5}s`, animationDuration: "2.5s" }} aria-hidden />

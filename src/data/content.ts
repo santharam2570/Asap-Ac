@@ -48,6 +48,32 @@ export const journey = [
   { step: "04", title: "Get Placed", description: "Mock interviews, resume polish and referrals to land your SAP role." },
 ];
 
+export const whyAsap = [
+  {
+    step: "01",
+    title: "10-15+ Years Experienced SAP Consultants",
+    description:
+      "Learn directly from working implementation leads who bring real corporate project scenarios into classroom and online sessions in Coimbatore and Trichy.",
+  },
+  {
+    step: "02",
+    title: "24/7 Live S/4HANA Sandbox Access",
+    description:
+      "Practice every financial configuration, procurement workflow, and custom ABAP program on a live enterprise SAP server.",
+  },
+  {
+    step: "03",
+    title: "Real-Time Implementation Projects",
+    description: "Work on realistic end-to-end projects that mirror actual MNC client deployments.",
+  },
+  {
+    step: "04",
+    title: "End-to-End Placement Assistance",
+    description:
+      "Resume polish, mock technical interviews, and direct referrals to top hiring partners across Tamil Nadu and IT hubs.",
+  },
+];
+
 export const testimonials = [
   {
     name: "Priya Ramesh",

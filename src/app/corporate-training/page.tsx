@@ -54,10 +54,11 @@ export default async function CorporateTrainingPage() {
         breadcrumbs={[{ label: "Corporate Training" }]}
         title={
           <>
-            SAP training for <span className="text-brand-400">your teams</span>
+            <span className="text-brand-400">Corporate SAP Training</span> &amp; Enterprise Upskilling Solutions in
+            Tamil Nadu
           </>
         }
-        description="Tailored SAP programs that upskill your workforce, accelerate S/4HANA adoption and build in-house expertise."
+        description="Empower your workforce with custom enterprise SAP training programs across Coimbatore, Trichy, Chennai, and South India. Delivered by 10-15+ years experienced implementation consultants with 100% live S/4HANA sandbox server instances, real-world project simulations, and flexible corporate delivery models (On-Premise, Virtual, or Hybrid)."
       />
 
       <section className="py-20 sm:py-28">
