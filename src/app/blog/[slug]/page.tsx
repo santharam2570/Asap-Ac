@@ -9,6 +9,73 @@ import { Icon } from "@/components/ui/Icon";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { formatPostDate, getPostBySlug, getPosts } from "@/lib/blog";
 import { getCourseBySlug } from "@/lib/courses";
+import type { BlogPost, BlogSection } from "@/types/blog";
+
+function CheckList({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-5 space-y-3">
+      {items.map((b) => (
+        <li key={b} className="flex items-start gap-3 text-ink-700">
+          <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-600 text-white">
+            <Icon name="check" className="size-3" strokeWidth={3} />
+          </span>
+          {b}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function PostSection({ section: s }: { section: BlogSection }) {
+  return (
+    <Reveal>
+      <h2 className="text-2xl font-extrabold">{s.heading}</h2>
+      <div className="mt-4 space-y-4 text-lg leading-relaxed text-ink-600">
+        {s.paragraphs.map((p) => (
+          <p key={p}>{p}</p>
+        ))}
+      </div>
+      {s.bullets && <CheckList items={s.bullets} />}
+      {s.groups?.map((g) => (
+        <div key={g.heading} className="mt-6">
+          <h3 className="text-lg font-bold text-ink-900">{g.heading}</h3>
+          <CheckList items={g.bullets} />
+        </div>
+      ))}
+      {s.steps && (
+        <ol className="mt-5 space-y-3">
+          {s.steps.map((step, i) => (
+            <li key={step} className="flex items-start gap-3 text-ink-700">
+              <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">
+                {i + 1}
+              </span>
+              {step}
+            </li>
+          ))}
+        </ol>
+      )}
+      {s.closing && (
+        <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink-600">
+          {s.closing.map((p) => (
+            <p key={p}>{p}</p>
+          ))}
+        </div>
+      )}
+    </Reveal>
+  );
+}
+
+function faqJsonLd(faqs: NonNullable<BlogPost["faqs"]>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: [f.a, ...(f.bullets ?? [])].join(" ") },
+    })),
+  };
+}
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -39,6 +106,13 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
 
   return (
     <>
+      {post.faqs && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(post.faqs)).replace(/</g, "\\u003c") }}
+        />
+      )}
+
       <PageHeader
         breadcrumbs={[{ label: "Blog", href: "/blog" }, { label: post.category }]}
         title={post.title}
@@ -63,28 +137,41 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
       <section className="py-14 sm:py-20">
         <Container className="grid gap-12 lg:grid-cols-[1fr_340px]">
           <article className="min-w-0 max-w-3xl space-y-10">
+            {post.intro && (
+              <Reveal className="space-y-4 text-lg leading-relaxed text-ink-600">
+                {post.intro.map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
+              </Reveal>
+            )}
             {post.sections.map((s) => (
-              <Reveal key={s.heading}>
-                <h2 className="text-2xl font-extrabold">{s.heading}</h2>
-                <div className="mt-4 space-y-4 text-lg leading-relaxed text-ink-600">
-                  {s.paragraphs.map((p) => (
-                    <p key={p}>{p}</p>
+              <PostSection key={s.heading} section={s} />
+            ))}
+            {post.faqs && (
+              <Reveal>
+                <h2 className="text-2xl font-extrabold">Frequently Asked Questions (FAQs)</h2>
+                <div className="mt-6 space-y-3">
+                  {post.faqs.map((f) => (
+                    <details
+                      key={f.q}
+                      className="group rounded-2xl border border-ink-100 bg-white px-6 transition-all duration-300 open:border-brand-200 open:bg-brand-50/40 open:shadow-lg open:shadow-brand-900/5 hover:border-brand-200"
+                    >
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-5 font-semibold text-ink-900 [&::-webkit-details-marker]:hidden">
+                        {f.q}
+                        <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-ink-50 text-ink-600 transition-all duration-300 group-open:rotate-45 group-open:bg-brand-600 group-open:text-white">
+                          <Icon name="plus" className="size-4" />
+                        </span>
+                      </summary>
+                      <div className="animate-fade-up pb-6 leading-relaxed text-ink-500 [animation-duration:400ms]">
+                        <p>{f.a}</p>
+                        {f.bullets && <CheckList items={f.bullets} />}
+                      </div>
+                    </details>
                   ))}
                 </div>
-                {s.bullets && (
-                  <ul className="mt-5 space-y-3">
-                    {s.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3 text-ink-700">
-                        <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-600 text-white">
-                          <Icon name="check" className="size-3" strokeWidth={3} />
-                        </span>
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </Reveal>
-            ))}
+            )}
+            {post.outro && <PostSection section={post.outro} />}
           </article>
 
           {course && (
