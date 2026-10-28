@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
 import { BlogCard } from "@/components/blog/BlogCard";
 import { CourseCard } from "@/components/courses/CourseCard";
 import { CtaBanner } from "@/components/home/CtaBanner";
@@ -11,6 +13,32 @@ import { formatPostDate, getPostBySlug, getPosts } from "@/lib/blog";
 import { getCourseBySlug } from "@/lib/courses";
 import type { BlogPost, BlogSection } from "@/types/blog";
 
+const INLINE_LINK = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+
+function plainText(text: string) {
+  return text.replace(INLINE_LINK, "$1");
+}
+
+function RichText({ text }: { text: string }) {
+  const parts: ReactNode[] = [];
+  let last = 0;
+  for (const m of text.matchAll(INLINE_LINK)) {
+    if (m.index > last) parts.push(text.slice(last, m.index));
+    parts.push(
+      <Link
+        key={m.index}
+        href={m[2]}
+        className="font-semibold text-brand-600 underline decoration-brand-600/30 underline-offset-4 transition-colors hover:text-brand-700 hover:decoration-brand-600"
+      >
+        {m[1]}
+      </Link>,
+    );
+    last = m.index + m[0].length;
+  }
+  if (last < text.length) parts.push(text.slice(last));
+  return <>{parts}</>;
+}
+
 function CheckList({ items }: { items: string[] }) {
   return (
     <ul className="mt-5 space-y-3">
@@ -19,7 +47,9 @@ function CheckList({ items }: { items: string[] }) {
           <span className="mt-1 flex size-5 shrink-0 items-center justify-center rounded-full bg-brand-600 text-white">
             <Icon name="check" className="size-3" strokeWidth={3} />
           </span>
-          {b}
+          <span>
+            <RichText text={b} />
+          </span>
         </li>
       ))}
     </ul>
@@ -32,7 +62,9 @@ function PostSection({ section: s }: { section: BlogSection }) {
       <h2 className="text-2xl font-extrabold">{s.heading}</h2>
       <div className="mt-4 space-y-4 text-lg leading-relaxed text-ink-600">
         {s.paragraphs.map((p) => (
-          <p key={p}>{p}</p>
+          <p key={p}>
+            <RichText text={p} />
+          </p>
         ))}
       </div>
       {s.bullets && <CheckList items={s.bullets} />}
@@ -49,7 +81,9 @@ function PostSection({ section: s }: { section: BlogSection }) {
               <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white">
                 {i + 1}
               </span>
-              {step}
+              <span>
+                <RichText text={step} />
+              </span>
             </li>
           ))}
         </ol>
@@ -57,7 +91,9 @@ function PostSection({ section: s }: { section: BlogSection }) {
       {s.closing && (
         <div className="mt-5 space-y-4 text-lg leading-relaxed text-ink-600">
           {s.closing.map((p) => (
-            <p key={p}>{p}</p>
+            <p key={p}>
+              <RichText text={p} />
+            </p>
           ))}
         </div>
       )}
@@ -72,7 +108,7 @@ function faqJsonLd(faqs: NonNullable<BlogPost["faqs"]>) {
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: [f.a, ...(f.bullets ?? [])].join(" ") },
+      acceptedAnswer: { "@type": "Answer", text: plainText([f.a, ...(f.bullets ?? [])].join(" ")) },
     })),
   };
 }
@@ -140,7 +176,9 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
             {post.intro && (
               <Reveal className="space-y-4 text-lg leading-relaxed text-ink-600">
                 {post.intro.map((p) => (
-                  <p key={p}>{p}</p>
+                  <p key={p}>
+                    <RichText text={p} />
+                  </p>
                 ))}
               </Reveal>
             )}
@@ -163,7 +201,9 @@ export default async function BlogPostPage({ params }: PageProps<"/blog/[slug]">
                         </span>
                       </summary>
                       <div className="animate-fade-up pb-6 leading-relaxed text-ink-500 [animation-duration:400ms]">
-                        <p>{f.a}</p>
+                        <p>
+                          <RichText text={f.a} />
+                        </p>
                         {f.bullets && <CheckList items={f.bullets} />}
                       </div>
                     </details>

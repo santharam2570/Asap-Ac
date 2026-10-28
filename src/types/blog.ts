@@ -1,3 +1,5 @@
+/* Body text fields (intro, paragraphs, bullets, steps, closing, FAQ answers) support inline links written as `[label](/path)`. */
+
 export interface BlogBulletGroup {
   heading: string;
   bullets: string[];
