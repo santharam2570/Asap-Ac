@@ -1,18 +1,15 @@
 import Image from "next/image";
 import mark from "@/assets/brand/logo-mark.png";
-import { RotatingWord } from "@/components/motion/RotatingWord";
 import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
 
 const chips = [
-  { label: "SAP FICO", className: "top-6 -left-4 sm:-left-10", delay: "0s" },
+  { label: "ATOS Partner", className: "top-6 -left-4 sm:-left-10", delay: "0s" },
   { label: "S/4HANA", className: "top-1/3 -right-3 sm:-right-8", delay: "1.5s" },
-  { label: "ABAP & RAP", className: "bottom-24 -left-2 sm:-left-12", delay: "3s" },
+  { label: "Global SAP", className: "bottom-24 -left-2 sm:-left-12", delay: "3s" },
   { label: "SAP BTP", className: "-bottom-3 right-10", delay: "4.5s" },
 ];
-
-const rotatingModules = ["FICO", "MM", "SD", "ABAP", "S/4HANA", "BTP", "HCM"];
 
 const delay = (ms: number) => ({ animationDelay: `${ms}ms` });
 
@@ -37,30 +34,31 @@ export function Hero() {
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-500 opacity-60" />
               <span className="relative inline-flex size-2 rounded-full bg-brand-600" />
             </span>
-            Admissions open · New SAP batches this month
+            Big news! We are expanding globally
           </p>
 
           <h1
-            className="mt-6 animate-fade-up text-4xl leading-[1.1] font-black tracking-tight sm:text-5xl lg:text-6xl"
+            className="mt-6 animate-fade-up text-4xl leading-[1.12] font-black tracking-tight sm:text-5xl lg:text-[3.25rem]"
             style={delay(120)}
           >
-            Become a <span className="whitespace-nowrap">job-ready</span>
-            <span className="block text-brand-600">
-              SAP <RotatingWord words={rotatingModules} />
+            ASAP Academy &amp; Yaadhum Group
+            <span className="mt-2 block text-2xl font-bold tracking-tight text-brand-600 sm:text-3xl lg:text-4xl">
+              ATOS White Label Partners
             </span>
-            Consultant
           </h1>
           <p
-            className="mt-3 animate-fade-up font-display text-2xl font-bold text-ink-500 sm:text-3xl"
+            className="mt-4 animate-fade-up font-display text-2xl font-bold text-ink-900 sm:text-3xl"
             style={delay(240)}
           >
-            As Study As Possible.
+            Taking SAP Training Beyond Borders.
+            <span className="mt-1 block text-ink-500">Empowering Global Careers.</span>
           </p>
 
           <p className="mt-6 max-w-xl animate-fade-up text-lg leading-relaxed text-ink-500" style={delay(360)}>
-            Industry-focused training in every major SAP module, from FICO, MM and SD to ABAP, S/4HANA,
-            SuccessFactors and BTP. Taught by certified consultants on live systems, with real-time projects
-            and placement support.
+            We are proud to take our SAP training initiatives to the global stage through our strategic
+            association with ATOS. This milestone enables us to expand our reach in delivering world class SAP
+            training, enterprise technology education and industry oriented learning opportunities to aspiring
+            professionals across international markets.
           </p>
 
           <div className="mt-8 flex animate-fade-up flex-col gap-3 sm:flex-row" style={delay(480)}>
