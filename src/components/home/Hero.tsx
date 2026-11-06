@@ -27,21 +27,22 @@ export function Hero() {
       <Container className="relative grid items-center gap-16 py-16 sm:py-20 lg:grid-cols-2 lg:py-28">
         <div>
           <p
-            className="inline-flex animate-fade-up items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-4 py-1.5 text-xs font-semibold text-brand-700"
+            className="inline-flex animate-fade-up items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-4 py-1.5 text-xs font-bold tracking-wide text-brand-700 uppercase"
             style={delay(0)}
           >
             <span className="relative flex size-2">
               <span className="absolute inline-flex size-full animate-ping rounded-full bg-brand-500 opacity-60" />
               <span className="relative inline-flex size-2 rounded-full bg-brand-600" />
             </span>
-            Big news! We are expanding globally
+            Big news! We are expanding globally.
           </p>
 
           <h1
             className="mt-6 animate-fade-up text-4xl leading-[1.12] font-black tracking-tight sm:text-5xl lg:text-[3.25rem]"
             style={delay(120)}
           >
-            ASAP Academy &amp; Yaadhum Group
+            ASAP Academy <span className="font-serif font-bold text-brand-600 italic">&amp;</span> Yaadhum Group
+            &ndash;
             <span className="relative mt-4 flex w-fit items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-brand-800 via-brand-500 to-brand-800 bg-size-200 px-5 py-3 text-xl font-black tracking-tight text-white shadow-xl shadow-brand-600/40 ring-4 ring-brand-200/70 animate-gradient sm:text-3xl lg:text-4xl">
               <Icon name="award" className="size-6 shrink-0 text-brand-100 sm:size-8" />
               ATOS White Label Partners
@@ -52,18 +53,28 @@ export function Hero() {
             </span>
           </h1>
           <p
-            className="mt-4 animate-fade-up font-display text-2xl font-bold text-ink-900 sm:text-3xl"
+            className="mt-8 flex animate-fade-up flex-wrap items-baseline gap-x-3 font-display text-xl font-extrabold tracking-[0.2em] text-ink-900 uppercase sm:text-2xl"
             style={delay(240)}
           >
-            Taking SAP Training Beyond Borders.
-            <span className="mt-1 block text-ink-500">Empowering Global Careers.</span>
+            We are officially
+            <span className="text-gradient-brand animate-gradient pr-2 font-serif text-5xl font-black tracking-normal normal-case italic sm:text-6xl">
+              &ldquo;ATOS&rdquo;
+            </span>
           </p>
 
-          <p className="mt-6 max-w-xl animate-fade-up text-lg leading-relaxed text-ink-500" style={delay(360)}>
+          <p className="mt-4 max-w-xl animate-fade-up text-lg leading-relaxed text-ink-500" style={delay(320)}>
             We are proud to take our SAP training initiatives to the global stage through our strategic
             association with ATOS. This milestone enables us to expand our reach in delivering world class SAP
             training, enterprise technology education and industry oriented learning opportunities to aspiring
             professionals across international markets.
+          </p>
+
+          <p
+            className="mt-6 animate-fade-up border-l-4 border-brand-600 pl-4 font-serif text-2xl font-bold text-ink-900 italic sm:text-3xl"
+            style={delay(400)}
+          >
+            Taking SAP Training Beyond Borders.{" "}
+            <span className="text-gradient-brand animate-gradient">Empowering Global Careers.</span>
           </p>
 
           <div className="mt-8 flex animate-fade-up flex-col gap-3 sm:flex-row" style={delay(480)}>
