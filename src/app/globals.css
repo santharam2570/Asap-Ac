@@ -42,6 +42,7 @@
   --animate-spin-slow: spin 24s linear infinite;
   --animate-spin-slower: spin 40s linear infinite reverse;
   --animate-shine: shine 1s ease-out;
+  --animate-shine-loop: shine-loop 3.5s ease-in-out infinite;
   --animate-gradient: gradient 8s ease infinite;
   --animate-wiggle: wiggle 1.2s ease-in-out infinite;
 
@@ -94,6 +95,16 @@
       transform: translateX(-120%) skewX(-20deg);
     }
     to {
+      transform: translateX(220%) skewX(-20deg);
+    }
+  }
+
+  @keyframes shine-loop {
+    0% {
+      transform: translateX(-120%) skewX(-20deg);
+    }
+    50%,
+    100% {
       transform: translateX(220%) skewX(-20deg);
     }
   }

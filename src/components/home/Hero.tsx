@@ -42,8 +42,13 @@ export function Hero() {
             style={delay(120)}
           >
             ASAP Academy &amp; Yaadhum Group
-            <span className="mt-2 block text-2xl font-bold tracking-tight text-brand-600 sm:text-3xl lg:text-4xl">
+            <span className="relative mt-4 flex w-fit items-center gap-3 overflow-hidden rounded-2xl bg-gradient-to-r from-brand-800 via-brand-500 to-brand-800 bg-size-200 px-5 py-3 text-xl font-black tracking-tight text-white shadow-xl shadow-brand-600/40 ring-4 ring-brand-200/70 animate-gradient sm:text-3xl lg:text-4xl">
+              <Icon name="award" className="size-6 shrink-0 text-brand-100 sm:size-8" />
               ATOS White Label Partners
+              <span
+                className="pointer-events-none absolute inset-y-0 left-0 w-1/2 animate-shine-loop bg-gradient-to-r from-transparent via-white/40 to-transparent"
+                aria-hidden
+              />
             </span>
           </h1>
           <p
